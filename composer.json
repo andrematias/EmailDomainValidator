@@ -1,0 +1,27 @@
+{
+    "name": "Email Domain Validator",
+    "description": "Aplicação para validação de domínios de emails",
+    "type": "Application",
+    "authors": [
+        {
+            "name": "André Matias",
+            "email": "dev.andrematias@gmail.com"
+        }
+    ],
+    "require-dev":{
+        "phpunit/phpunit":"5.5.0"
+    },
+
+    "require":{
+        "php": ">=5.6"
+    },
+
+    "autoload":{
+        "classmap":[
+            "./app/"
+        ],
+        "psr-4":{
+            "EDValidator\\":"./app/"
+        }
+    }
+}
