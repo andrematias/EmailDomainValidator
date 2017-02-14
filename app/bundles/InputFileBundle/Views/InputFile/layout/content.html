@@ -1,0 +1,34 @@
+<section class="form-validate-list">
+	<form action="http://google.com" method="post" id="input-file-form" class="input-csv-file">
+		<fieldset>
+			<legend> Input the Csv File to validate </legend>
+			<div class="file-input">
+				<input type="file" name="csvInput">
+				<input class="btn" name="upload" type="submit" value="upload">
+			</div>
+			<div class="row">
+				<span>
+					<label for="limit">Lot limit</label><br>
+					<input type="text" name="lot" value="100">
+				</span>
+
+				<span>
+					<label for="delimiter">Delimiter</label><br>
+					<input type="text" name="delimiter" id="delimiter" value=",">
+				</span>
+
+				<span>
+					<label for="grouping">Grouping</label><br>
+					<input type="text" name="grouping" id="grouping" value='"'>
+				</span>
+			</div>
+			<span>
+				<strong>Details: </strong>
+			</span>
+			<div class="log-box">
+
+			</div>
+
+		</fieldset>
+	</form>
+</section>
