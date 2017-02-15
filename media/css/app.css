@@ -9,6 +9,11 @@ html, body{
 	font-family: helvetica, Arial;
 }
 
+.validate-container{
+	height: 100%;
+	position: absolute;
+}
+
 .form-validate-list{
 	height: 100%;
 	position: relative;
@@ -23,14 +28,20 @@ html, body{
 	padding: 20px;
 }
 
-.file-input > input[type=submit].btn{
-	width: 100px;
-	height: 40px;
+.file-input > button.btn{
+	font-weight: 700;
+	width: 110px;
+	padding: 10px;
 	background: #3eacfb;
-	border-radius: 5px;
+	border-radius: 0px 5px 5px 0px;
 	border: solid 1px #7676ec;
 	color: #ffffff;
 	text-transform: uppercase;
+	margin-left: -5px;
+}
+
+.upload-icon{
+	fill: #ffffff;
 }
 
 form.input-csv-file > fieldset{
@@ -46,12 +57,16 @@ form.input-csv-file > fieldset > legend{
 div.file-input{
 	padding: 20px;
 	text-align: center;
+	background: #f5f5f5;
+	border: 1px solid #d4d4d4;
+	border-radius: 10px;
 }
 
 div.file-input > input[type=file]{
 	border: 1px solid #cccccc;
-	border-radius: 5px;
-	padding: 9px;
+	border-radius: 5px 0px 0px 5px;
+	padding: 12px 9px 7px 9px;
+	background: #ffffff;
 }
 
 div.row{
