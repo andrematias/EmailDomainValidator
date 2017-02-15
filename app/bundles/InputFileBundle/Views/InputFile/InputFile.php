@@ -28,6 +28,11 @@ class InputFile extends View
 
 		$form = new Template();
 		$form->load('content.html', __DIR__.'/layout/');
+		$form->setValue('action_form', '');
+		
+		//TODO add new paragraphers in details box following the procedure
+		$form->setValue('more_details', '');
+
 
 		$formTemplate = new Template();
 		$formTemplate->load('default.html', __DIR__.'/../../../CoreBundle/Views/default/');
