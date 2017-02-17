@@ -11,7 +11,6 @@ namespace EDValidator\bundles\CoreBundle\Abstracts;
 
 abstract class Request
 {
-	abstract public  function  getController();
-	abstract public  function  getMethod();
-	abstract public  function  getParammeters();
+	abstract public function getFiles();
+	abstract public function getValue($key);
 }
