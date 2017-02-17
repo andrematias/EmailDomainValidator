@@ -3,6 +3,7 @@
 $GLOBALS['paths'] = array(
 	'root' => __DIR__.'/../../',
 	'media'=> __DIR__.'/../../media/',
+	'uploads'=> __DIR__.'/../../media/files/uploads/',
 	'bin'  => __DIR__.'/../../bin',
 	'controllers' => __DIR__.'/../bundles/CoreBundle/Controllers/'
 );
@@ -15,6 +16,5 @@ $GLOBALS['site_paths'] = array(
 );
 
 $GLOBALS['site_paths']['media'] = $GLOBALS['site_paths']['hostname'].'/media/';
-
 
 require_once($GLOBALS['paths']['root'].'vendor/autoload.php');
