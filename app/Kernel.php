@@ -10,7 +10,7 @@
 
 namespace EDValidator;
 use EDValidator\bundles\CoreBundle\Router\Router;
-use EDValidator\bundles\CoreBundle\UriRequest\UriRequest;
+use EDValidator\bundles\CoreBundle\RouterCollector\RouterCollector;
 use EDValidator\bundles\CoreBundle\Controllers\NotFound;
 use EDValidator\bundles\CoreBundle\CoreBundle;
 
@@ -24,9 +24,9 @@ class Kernel
 	*/
 	public function execute()
 	{
-		$request = new UriRequest();
+		$collector = new RouterCollector();
 
-		$route = new Router($request);
+		$route = new Router($collector);
 
 		$route->add('/', new CoreBundle);
 		$route->add('Home/', new CoreBundle);
@@ -35,7 +35,7 @@ class Kernel
 
 		if(!$traced){
 			$notFound = new NotFound();
-			$notFound->index(array('request' => $request->getUri()));
+			$notFound->index(array('request' => $collector->getUri()));
 		}
 	}
 }

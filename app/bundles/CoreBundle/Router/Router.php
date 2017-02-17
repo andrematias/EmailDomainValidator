@@ -8,7 +8,7 @@
 */
 
 namespace EDValidator\bundles\CoreBundle\Router;
-use EDValidator\bundles\CoreBundle\Abstracts\Request;
+use EDValidator\bundles\CoreBundle\Abstracts\Collector;
 use EDValidator\bundles\CoreBundle\Abstracts\Bundles;
 
 class Router
@@ -20,10 +20,10 @@ class Router
 	private $uri = array();
 
 	/**
-	* Object instance of class Request
-	* @var EDValidator\bundles\CoreBundle\Abstract\Request
+	* Object instance of class Collector
+	* @var EDValidator\bundles\CoreBundle\Abstract\Collector
 	*/
-	private $request;
+	private $collector;
 
 	/**
 	* Controller Name
@@ -45,17 +45,17 @@ class Router
 
 	/**
 	* Construct method
-	* @param $request EDValidator\bundles\CoreBundle\Abstract\Request
+	* @param $collector EDValidator\bundles\CoreBundle\Abstract\Collector
 	* @return void
 	*/
-	public function __construct(Request $request)
+	public function __construct(Collector $collector)
 	{
-		$this->request = $request;
+		$this->collector = $collector;
 	}
 
 	/**
 	* Method add for add new uri and bundle corresponding
-	* @param $uri string							Request name
+	* @param $uri string												Collector name
 	* @param $bundle EDValidator\bundles\CoreBundle\Abstract\Bundles	Object instance of Bundles for execute
 	* @return void
 	*/
@@ -70,15 +70,15 @@ class Router
 	public function trace()
 	{
 
-		$uriRequest = $this->request->getController().'/'.$this->request->getMethod();
+		$uriCollector = $this->collector->getController().'/'.$this->collector->getMethod();
 
-		$bundle = &$this->uri[$uriRequest];
+		$bundle = &$this->uri[$uriCollector];
 
 		if($bundle){
 
-			$this->controller  = $this->request->getController();
-			$this->method      = $this->request->getMethod();
-			$this->parammeters = $this->request->getParammeters();
+			$this->controller  = $this->collector->getController();
+			$this->method      = $this->collector->getMethod();
+			$this->parammeters = $this->collector->getParammeters();
 
 			$this->loadBundle($bundle);
 
