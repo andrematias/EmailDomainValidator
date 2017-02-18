@@ -6,7 +6,7 @@ $GLOBALS['paths'] = array(
 	'uploads'=> __DIR__.'/../../media/files/uploads/',
 	'bin'  => __DIR__.'/../../bin',
 	'controllers' => __DIR__.'/../bundles/CoreBundle/Controllers/',
-	'logs' => '/var/www/EDValidator/logs/'
+	'logs' => __DIR__.'/../../logs/'
 );
 
 $protocol = (isset($_SERVER['HTTPS'])) ? 'https://' : 'http://';
