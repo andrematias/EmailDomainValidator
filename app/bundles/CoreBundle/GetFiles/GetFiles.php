@@ -1,4 +1,5 @@
 <?php
+//TODO to documentation
 namespace EDValidator\bundles\CoreBundle\GetFiles;
 
 class GetFiles
@@ -20,11 +21,17 @@ class GetFiles
 			self::$fileName = $values['name'];
 			self::$fileType = $values['type'];
 			self::$tmpName  = $values['tmp_name'];
-			self::$savePath = $savePath;
+			if(is_dir($savePath)){
+				self::$savePath = $savePath;
+			}
 			self::$fileSize = $values['size'];
 		}
 
-		return self::moveFile(self::$tmpName, self::$savePath.self::$fileName);
+		if(!is_null(self::$tmpName) && isset(self::$savePath)){
+		
+			return self::moveFile(self::$tmpName, self::$savePath.self::$fileName);
+		}
+		return false;
 	}
 
 	private static function moveFile($tmpName, $newPath)
