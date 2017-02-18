@@ -8,9 +8,9 @@
 */
 
 namespace EDValidator\bundles\CoreBundle\Abstracts;
-
+use EDValidator\bundles\CoreBundle\GetFiles\GetFiles;
 abstract class Request
 {
-	abstract public function getFiles();
+	abstract public function getFiles(GetFiles $files);
 	abstract public function getValue($key);
 }
