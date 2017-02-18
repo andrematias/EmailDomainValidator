@@ -64,6 +64,7 @@ use EDValidator\bundles\CoreBundle\Abstracts\Bundles;
  	{
  		if(!is_null($this->controller)){
 
+		$this->controller = new $this->controller;
 	 		call_user_func_array(
 	 			array(
 	 				$this->controller,
