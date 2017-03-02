@@ -30,8 +30,21 @@ class InputFile extends View
 		$form->load('content.html', __DIR__.'/layout/');
 		$form->setValue('action_form', '');
 		
-		//TODO add new paragraphers in details box following the procedure
-		$form->setValue('more_details', '');
+		$descriptions = null;
+
+		if(!is_null($this->args['status'])){
+
+			$descriptions  = "- <b>Status:</b> {$this->args['status']} <br>";
+
+			if($this->args['status'] === 'error'){
+				$descriptions .= "- <b>Error:</b> {$this->args['typeError']} <br>";
+			}
+
+			$descriptions .= "- <b>Total e-mail valids:</b> {$this->args['totalValids']} <br>";
+			$descriptions .= "- <b>Total e-mail invalids:</b> {$this->args['totalInvalids']} <br>";
+		}
+
+		$form->setValue('more_details', $descriptions);
 
 
 		$formTemplate = new Template();

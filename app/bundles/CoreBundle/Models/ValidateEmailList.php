@@ -1,6 +1,6 @@
 <?php
 //TODO to documentation
-namespace EDValidate\bundles\CoreBundle\Models;
+namespace EDValidator\bundles\CoreBundle\Models;
 
 class ValidateEmailList
 {
