@@ -2,7 +2,7 @@
 //TODO to documentation
 namespace EDValidateTests\CoreBundle\Models;
 use EDValidateTests\Abstracts\PhpUnitEDValidate;
-use EDValidate\bundles\CoreBundle\Models\ValidateEmailList;
+use EDValidator\bundles\CoreBundle\Models\ValidateEmailList;
 
 class ValidateEmailListTest extends PhpUnitEDValidate
 {
