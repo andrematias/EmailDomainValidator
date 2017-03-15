@@ -21,232 +21,232 @@ class Smtp
 	 * @see http://www.rfc-base.org/txt/rfc-876.txt
 	 * @var integer
 	 */
-	const $NOSTANDART_SUCCESS_RESPONSE = 200;
+	const NOSTANDART_SUCCESS_RESPONSE = 200;
 	
 	/**
 	 * System status, or system help reply
 	 * @var integer
 	 */
-	const $SYSTEM_STATUS = 211;
+	const SYSTEM_STATUS = 211;
 
 	/**
 	 * Help message
 	 * @var integer
 	 */
-	const $HELP_MESSAGE = 214;
+	const HELP_MESSAGE = 214;
 
 	/**
 	 * <domain> Service ready
 	 * @var integer
 	 */
-	const $SERVICE_READY = 220;
+	const SERVICE_READY = 220;
 
 	/**
 	 * <domain> Service closing transmission channel
 	 * @var integer
 	 */
-	const $CLOSE_TRANSMISSION_CHANNEL = 221;
+	const CLOSE_TRANSMISSION_CHANNEL = 221;
 	
 	/**
 	 * Requested mail action okay, completed
 	 * @var integer
 	 */
-	const $COMPLETED = 250;
+	const COMPLETED = 250;
 
 	/**
 	 * User not local; will forward to <forward-path>
 	 * @var integer
 	 */
-	const $USER_NOT_LOCAL = 251;
+	const USER_NOT_LOCAL = 251;
 
 	/**
 	 * Cannot VRFY user, but will accept message and attempt delivery
 	 * @var integer
 	 */
-	const $USER_NOT_VERIFIED = 252;	
+	const USER_NOT_VERIFIED = 252;	
 
 	/**
 	 * Start mail input; end with <CRLF>.<CRLF>
 	 * @var integer
 	 */
-	const $INIT_MAIL_INPUT = 354;
+	const INIT_MAIL_INPUT = 354;
 
 	/**
 	 * <domain> Service not available, closing transmission channel
 	 * @var integer
 	 */
-	const $SERVICE_NOTE_AVALIABLE = 421;
+	const SERVICE_NOTE_AVALIABLE = 421;
 
 	/**
 	 * Requested mail action not taken: mailbox unavailable
 	 * @var integer
 	 */
-	const $MAIL_ACTION_MAILBOX_UNAVALIABLE = 450;
+	const MAIL_ACTION_MAILBOX_UNAVALIABLE = 450;
 
 	/**
 	 * Requested action aborted: local error in processing
 	 * @var integer
 	 */
-	const $ERROR_IN_PROCESSING = 451;
+	const ERROR_IN_PROCESSING = 451;
 
 	/**
 	 * Requested action not taken: insufficient system storage
 	 * @var integer
 	 */
-	const $INSUFFICIENT_STORAGE = 452;
+	const INSUFFICIENT_STORAGE = 452;
 
 	/**
 	 * Syntax error, command unrecognised
 	 * @var integer
 	 */
-	const $COMMAND_UNRECOGNISED = 500;
+	const COMMAND_UNRECOGNISED = 500;
 	
 	/**
 	 * Syntax error in parameters or arguments
 	 * @var integer
 	 */
-	const $ARGS_SYNTAX_ERROR = 501;
+	const ARGS_SYNTAX_ERROR = 501;
 
 	/**
 	 * Command not implemented
 	 * @var integer
 	 */
-	const $COMMAND_NOT_IMPLEMENTED = 502;
+	const COMMAND_NOT_IMPLEMENTED = 502;
 
 	/**
 	 * Bad sequence of commands
 	 * @var integer
 	 */
-	const $BAD_SEQUENCE_OF_COMMANDS = 503;
+	const BAD_SEQUENCE_OF_COMMANDS = 503;
 
 	/**
 	 * Command parameter not implemented
 	 * @var integer
 	 */
-	const $PARAM_NOT_IMPLEMENTED = 504;
+	const PARAM_NOT_IMPLEMENTED = 504;
 	
 	/**
 	 * <domain> does not accept mail
 	 * @see http://www.rfc-base.org/txt/rfc-1846.txt
 	 * @var integer
 	 */
-	const $DOMAIN_NOT_ACCEPT_EMAIL = 521;
+	const DOMAIN_NOT_ACCEPT_EMAIL = 521;
 
 	/**
 	 * Access denied
 	 * @var integer
 	 */
-	const $ACCESS_DENIED = 530;
+	const ACCESS_DENIED = 530;
 
 	/**
 	 * Requested action not taken: mailbox unavailable
 	 * @var integer
 	 */
-	const $REQUEST_MAILBOX_UNAVALIABLE = 550;
+	const REQUEST_MAILBOX_UNAVALIABLE = 550;
 
 	/**
 	 * User not local; please try <forward-path>
 	 * @var integer
 	 */
-	const $USER_NOT_LOCAL_TRY = 551;
+	const USER_NOT_LOCAL_TRY = 551;
 
 	/**
 	 * Requested mail action aborted: exceeded storage allocation
 	 * @var integer
 	 */
-	const $EXCEEDED_STORAGE = 552;
+	const EXCEEDED_STORAGE = 552;
 
 	/**
 	 * Requested action not taken: mailbox name not allowed
 	 * @var integer
 	 */
-	const $MAILBOX_NOT_ALLOWED = 553;
+	const MAILBOX_NOT_ALLOWED = 553;
 
 	/**
 	 * Transaction failed
 	 * @var integer
 	 */
-	const $TRANSACTION_FAILED = 554;
+	const TRANSACTION_FAILED = 554;
 
 	/**
 	 * Command to request to Initiate the conversation
 	 * @var string
 	 */
-	const $REQUEST_HELO = 'HELO';
+	const REQUEST_HELO = 'HELO';
 
 	/**
 	 * Command to request to Initiate the conversation Extended HELO
 	 * @var string
 	 */
-	const $REQUEST_EHLO = 'EHLO';
+	const REQUEST_EHLO = 'EHLO';
 
 	/**
 	 * Command to specifies the e-mail address of the sender.
 	 * @var string
 	 */
-	const $REQUEST_MAIL = 'MAIL FROM:';
+	const REQUEST_MAIL = 'MAIL FROM:';
 
 	/**
 	 * Command to specifies the e-mail address of the recipient.
 	 * @var string
 	 */
-	const $REQUEST_RCPT = 'RCPT TO:';
+	const REQUEST_RCPT = 'RCPT TO:';
 
 	/**
 	 * Command to set the DATA command starts the transfer of the message contents
 	 * @var string
 	 */
-	const $REQUEST_DATA = 'DATA';
+	const REQUEST_DATA = 'DATA';
 
 	/**
 	 * Command to Abort the current mail transaction.
 	 * @var string
 	 */
-	const $REQUEST_RSET = 'RSET';
+	const REQUEST_RSET = 'RSET';
 
 	/**
 	 * Command to Sends a message to a user's terminal instead of a mailbox.
 	 * @var string
 	 */
-	const $REQUEST_SEND = 'SEND';
+	const REQUEST_SEND = 'SEND';
 
 	/**
 	 * Commando to sends a message to a user's terminal if they are logged on; 
 	 * otherwise, sends the message to the user's mailbox.
 	 * @var string
 	 */
-	const $REQUEST_SOML = 'SOML';
+	const REQUEST_SOML = 'SOML';
 
 	/**
 	 * Command to sends a message to a user's terminal and to a user's mailbox
 	 * @var string
 	 */
-	const $REQUEST_SAML = 'SAML';
+	const REQUEST_SAML = 'SAML';
 
 	/**
 	 * Command to Verifies the existence and user name of a given mail address.
 	 * Attention: Not recommended, this command can be blocked by firewalls
 	 * @var string
 	 */
-	const $REQUEST_VRFY = 'VRFY';
+	const REQUEST_VRFY = 'VRFY';
 
 	/**
 	 * Command to indicate that using an mailing list
 	 * @var string
 	 */
-	const $REQUEST_EXPN = 'EXPN';
+	const REQUEST_EXPN = 'EXPN';
 
 	/**
 	 * Command for help from the mail server
 	 * @var string
 	 */
-	const $REQUEST_HELP = 'HELP';
+	const REQUEST_HELP = 'HELP';
 
 	/**
 	 * Command to indicate that the conversation is over.
 	 * @var string
 	 */
-	const $REQUEST_QUIT = 'QUIT';
+	const REQUEST_QUIT = 'QUIT';
 
 
 	/**
