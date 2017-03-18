@@ -1,10 +1,10 @@
 <?php
-namespace EDValidateTests\Abstracts;
+namespace EDValidatorTests\Abstracts;
 
 use \PHPUnit_Framework_TestCase AS PHPUnit;
 use \ReflectionClass;
 
-abstract class PhpUnitEDValidate extends PHPUnit
+abstract class PhpUnitEDValidator extends PHPUnit
 {
 	/**
 	 * Call protected/private method of a class.

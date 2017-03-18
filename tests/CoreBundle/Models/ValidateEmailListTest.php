@@ -1,10 +1,10 @@
 <?php
 //TODO to documentation
-namespace EDValidateTests\CoreBundle\Models;
-use EDValidateTests\Abstracts\PhpUnitEDValidate;
-use EDValidate\bundles\CoreBundle\Models\ValidateEmailList;
+namespace EDValidatorTests\CoreBundle\Models;
+use EDValidatorTests\Abstracts\PhpUnitEDValidator;
+use EDValidator\bundles\CoreBundle\Models\ValidateEmailList;
 
-class ValidateEmailListTest extends PhpUnitEDValidate
+class ValidateEmailListTest extends PhpUnitEDValidator
 {
 	private $validate;
 
