@@ -248,6 +248,7 @@ class Smtp
 	 */
 	const REQUEST_QUIT = 'QUIT';
 
+	const EMAIL_REGEX = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/";
 
 	/**
 	 * MX type record in DNS to direct the emails of the domain to server
@@ -296,14 +297,12 @@ class Smtp
 	/**
 	 * Construct method of this class
 	 * @param string $mxRegister 	Host from server email
-	 * @param string $from 			Email to From
 	 * @param string $httpHost 		Hostname that server
 	 * @param integer $port 		Port number to access TCP
 	 */
-	public function __construct( $mxRegister, $from, $httpHost, $port = 25 )
+	public function __construct( $mxRegister, $httpHost, $port = 25 )
 	{
 		$this->mxRegister     = $mxRegister;
-		$this->from 	      = $from;
 		$this->httpHost       = $httpHost;
 		$this->port 	      = $port;
 	}
@@ -344,7 +343,7 @@ class Smtp
 	 */
 	protected function initConversationWithHelo()
 	{
-		fputs($this->connection, "{self::HELO} {$this->httpHost} \n\r");
+		fputs($this->connection, self::REQUEST_HELO." ".$this->httpHost."\n\r");
 	}
 
 	/**
@@ -353,16 +352,17 @@ class Smtp
 	 */
 	protected function initConversationWithEhlo()
 	{
-		fputs($this->connection, "{self::EHLO} {$this->httpHost} \n\r");
+		fputs($this->connection, self::REQUEST_EHLO." ".$this->httpHost."\n\r");
 	}
 
 	/**
 	 * Set the From of the email
 	 * @return void
 	 */
-	protected function setMailFrom()
+	protected function setMailFrom( $from )
 	{
-		fputs($serverConnection, "{self::MAIL_FROM} <{$this->from}> \r\n");
+		$this->from = $this->checkEmailSyntax($from);
+		fputs($this->connection, self::REQUEST_MAIL." <".$this->from."> \r\n");
 	}
 
 	/**
@@ -371,7 +371,7 @@ class Smtp
 	 */
 	protected function receptedTo( $email )
 	{
-		fputs($this->connection, "{self::RCPT_TO} <{$email}> \r\n");
+		fputs($this->connection, self::REQUEST_RCPT." <".$email."> \r\n");
 	}
 
 	/**
@@ -394,7 +394,15 @@ class Smtp
 	 */
 	protected function quitConversation()
 	{
-		fputs($serverConnection, "{self::QUIT}\r\n");
+		fputs($serverConnection, self::REQUEST_QUIT."\r\n");
 	}
 
+	private function checkEmailSyntax($email)
+	{
+		if(preg_match(self::EMAIL_REGEX, $email)){
+			return $email;
+		}
+
+		return null;
+	}
 }
